@@ -13,5 +13,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 18
+      - name: npm/yarn/pnpm install
+        uses: Jaid/action-npm-install@v1.2.4
       - name: tsc
         uses: icrawl/action-tsc@v1
