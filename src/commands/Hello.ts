@@ -1,10 +1,17 @@
-import { CommandInteraction, Client } from "discord.js";
+import { CommandInteraction, Client, CacheType } from "discord.js";
 import { Command } from "../Classes/Command";
+import { PermissionError } from "../Classes/ErrorTypes";
 
 export const Hello: Command = {
   name: "hello",
   description: "Returns a greeting",
-  type: 1,
+  canExecute: function (client: Client, interaction: CommandInteraction): boolean {
+    if (interaction.member?.user.username === "Dustin_DM") {
+      return true;
+    } else {
+      throw new PermissionError("Du bist nicht Dustin");
+    }
+  },
   run: async (client: Client, interaction: CommandInteraction) => {
     const content = "Hello there!";
 

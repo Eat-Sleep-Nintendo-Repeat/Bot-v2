@@ -7,7 +7,7 @@ export default (client: Client): void => {
       return;
     }
 
-    await client.application.commands.set(Commands);
+    await client.application.commands.set(Commands, "604747271862485012");
 
     console.log(`${client.user.username} is online`);
   });
