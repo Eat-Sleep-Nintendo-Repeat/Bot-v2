@@ -26,9 +26,9 @@ const handleSlashCommand = async (client: Client, interaction: CommandInteractio
     //Execute command
     slashCommand.run(client, interaction);
   } catch (error: any) {
-    let e: Error = error;
+    const e: Error = error;
     //Send Error Messages
-    var fields = [];
+    const fields = [];
     if (e.name) {
       fields.push({ name: "Fehlertyp:", value: e.name.toString(), inline: false });
     }
