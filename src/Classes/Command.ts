@@ -1,4 +1,4 @@
-import { CommandInteraction, ChatInputApplicationCommandData, Client, Application, ApplicationCommand, ApplicationCommandOptionData, OverwriteType } from "discord.js";
+import { CommandInteraction, ChatInputApplicationCommandData, Client } from "discord.js";
 
 export interface Command extends ChatInputApplicationCommandData {
   canExecute: (client: Client, interaction: CommandInteraction) => boolean;

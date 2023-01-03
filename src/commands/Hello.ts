@@ -1,4 +1,4 @@
-import { CommandInteraction, Client, CacheType } from "discord.js";
+import { CommandInteraction, Client } from "discord.js";
 import { Command } from "../Classes/Command";
 import { PermissionError } from "../Classes/ErrorTypes";
 
