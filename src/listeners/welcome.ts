@@ -6,7 +6,7 @@ import * as colors from "../Classes/Colors";
 export default (client: Client): void => {
   client.on("guildMemberAdd", async (member) => {
     //Is member already in Database
-    var UserDB = await User.findOne({ discordId: member.id });
+    const UserDB = await User.findOne({ discordId: member.id });
 
     if (!UserDB) {
       //Add to DB
@@ -21,7 +21,7 @@ export default (client: Client): void => {
     }
 
     //Send Message to welcome channel
-    var channel: TextChannel | undefined = undefined;
+    let channel: TextChannel | undefined = undefined;
 
     if (client.env === "DEVELOPMENT") channel = <TextChannel>client.channels.cache.get("770299376303079424");
     if (client.env === "PRODUCTION") channel = <TextChannel>client.channels.cache.get("585522626407956492");
@@ -31,7 +31,7 @@ export default (client: Client): void => {
 
   client.on("guildMemberRemove", async (member) => {
     //Find Member in Database
-    var UserDB = await User.findOne({ discordId: member.id });
+    const UserDB = await User.findOne({ discordId: member.id });
 
     if (UserDB) {
       UserDB.left = new Date();
@@ -39,7 +39,7 @@ export default (client: Client): void => {
     }
 
     //Send Message to welcome channel
-    var channel: TextChannel | undefined = undefined;
+    let channel: TextChannel | undefined = undefined;
 
     if (client.env === "DEVELOPMENT") channel = <TextChannel>client.channels.cache.get("770299376303079424");
     if (client.env === "PRODUCTION") channel = <TextChannel>client.channels.cache.get("585522626407956492");
