@@ -1,4 +1,4 @@
-import { Client } from "discord.js";
+import Client from "../Classes/Client";
 import { Commands } from "../Commands";
 
 export default (client: Client): void => {
@@ -7,8 +7,10 @@ export default (client: Client): void => {
       return;
     }
 
-    await client.application.commands.set(Commands, "604747271862485012");
+    if (client.env === "DEVELOPMENT") await client.application.commands.set(Commands, "604747271862485012");
+    if (client.env === "PRODUCTION") await client.application.commands.set(Commands);
 
-    console.log(`${client.user.username} is online`);
+    if (client.env === "DEVELOPMENT") console.log(`${client.user.username} is online IN DEVELOPMENT MODE`);
+    if (client.env === "PRODUCTION") console.log(`${client.user.username} is online`);
   });
 };

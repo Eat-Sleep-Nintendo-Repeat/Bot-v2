@@ -1,4 +1,5 @@
-import { CommandInteraction, Client, Interaction, EmbedBuilder } from "discord.js";
+import Client from "../Classes/Client";
+import { CommandInteraction, Interaction, EmbedBuilder } from "discord.js";
 import { Commands } from "../Commands";
 import * as colors from "../Classes/Colors";
 
