@@ -9,7 +9,7 @@ interface IUser {
   reJoined?: Array<Date>;
   left?: Date;
 
-  roles: Array<String>;
+  roles: Array<string>;
 }
 
 const userSchema = new Schema<IUser>({
