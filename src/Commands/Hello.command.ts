@@ -2,7 +2,7 @@ import { CommandInteraction, Client } from "discord.js";
 import { Command } from "../Classes/Command";
 import { PermissionError } from "../Classes/ErrorTypes";
 
-export const Hello: Command = {
+const Command: Command = {
   name: "hello",
   description: "Returns a greeting",
   canExecute: function (client: Client, interaction: CommandInteraction): boolean {
@@ -21,3 +21,5 @@ export const Hello: Command = {
     });
   },
 };
+
+export default Command;

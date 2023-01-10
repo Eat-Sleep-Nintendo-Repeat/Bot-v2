@@ -1,5 +1,5 @@
 import { EmbedBuilder, TextChannel } from "discord.js";
-import User from "../models/User";
+import User from "../Models/User";
 import Client from "../Classes/Client";
 import * as colors from "../Classes/Colors";
 
