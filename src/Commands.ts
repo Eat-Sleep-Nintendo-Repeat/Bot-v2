@@ -1,9 +1,6 @@
 import { Command } from "./Classes/Command";
 import requireAll from "require-all";
 import path from "path";
-// import { Hello } from "./commands/Hello";
-
-// export const Commands: Command[] = [Hello];
 
 export function getCommands(): Command[] {
   const returnValue: Command[] = [];
