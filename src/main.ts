@@ -1,9 +1,6 @@
 import * as dotenv from "dotenv";
 import Client from "./Classes/Client";
-import ready from "./Listeners/ready";
-import interactionCreate from "./Listeners/interactionCreate";
 import { connectDB } from "./Services/Database";
-import welcome from "./Listeners/welcome";
 import { registerListeners } from "./Listeners";
 
 //load data from .env file
