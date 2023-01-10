@@ -4,6 +4,7 @@ import ready from "./Listeners/ready";
 import interactionCreate from "./Listeners/interactionCreate";
 import { connectDB } from "./Services/Database";
 import welcome from "./Listeners/welcome";
+import { registerListeners } from "./Listeners";
 
 //load data from .env file
 dotenv.config();
@@ -15,9 +16,7 @@ const client = new Client(
   process.env.ENVIRONMENT
 );
 
-interactionCreate(client);
 connectDB();
-ready(client);
-welcome(client);
+registerListeners(client);
 
 client.login(process.env.DISCORD_BOT_TOKEN);

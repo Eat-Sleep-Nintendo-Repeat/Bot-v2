@@ -2,15 +2,20 @@ import Client from "../Classes/Client";
 import { CommandInteraction, Interaction, EmbedBuilder } from "discord.js";
 import { getCommands } from "../Commands";
 import * as colors from "../Classes/Colors";
-import { Command } from "src/Classes/Command";
+import { Command } from "../Classes/Command";
+import DiscordEvent from "../Classes/DiscordEventClass";
 
-export default (client: Client): void => {
-  client.on("interactionCreate", async (interaction: Interaction) => {
+export default class InteractionEvent extends DiscordEvent {
+  constructor(client: Client) {
+    super(client, "interactionCreate");
+  }
+
+  async run(interaction: Interaction) {
     if (interaction.isCommand()) {
-      await handleSlashCommand(client, interaction);
+      await handleSlashCommand(this.client, interaction);
     }
-  });
-};
+  }
+}
 
 const handleSlashCommand = async (client: Client, interaction: CommandInteraction): Promise<void> => {
   const Commands: Command[] = getCommands();
